@@ -15,7 +15,7 @@
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "outDir": "./dist",
-    "rootDir": "./src",
+    "rootDir": "./",
     "strictPropertyInitialization": false,
     "resolveJsonModule": true
   },
