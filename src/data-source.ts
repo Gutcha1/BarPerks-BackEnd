@@ -8,15 +8,6 @@ const dataSourceConfig = (): DataSourceOptions => {
     const migrationsPath: string = path.join(__dirname, './migrations/**.{ts,js}')
     const nodeEnv: string | undefined = process.env.NODE_ENV;
 
-    if (nodeEnv === "production") {
-      return {
-        type: "postgres",
-        url: process.env.DATABASE_URL,
-        entities: [entitiesPath],
-        migrations: [migrationsPath],
-      };
-    }
-
     const dbUrl: string | undefined = process.env.DATABASE_URL
 
     if(!dbUrl){
@@ -30,6 +21,14 @@ const dataSourceConfig = (): DataSourceOptions => {
             synchronize: true,
             entities: [entitiesPath]
         }
+    }
+    else if (nodeEnv === "production") {
+      return {
+        type: "postgres",
+        url: dbUrl,
+        entities: [entitiesPath],
+        migrations: [migrationsPath],
+      };
     }
 
     return {
