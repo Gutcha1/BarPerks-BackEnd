@@ -13,7 +13,6 @@
   },
   "devDependencies": {
   },
-  "devDependencies": {},
   "dependencies": {
     "@types/bcryptjs": "^2.4.4",
     "@types/cors": "^2.8.14",
