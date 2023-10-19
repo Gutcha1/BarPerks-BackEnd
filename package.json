@@ -7,7 +7,8 @@
   "license": "MIT",
   "scripts": {
     "typeorm": "typeorm-ts-node-commonjs",
-    "dev": "ts-node-dev --transpile-only --ignore-watch node_modules --rs --cls src/server.ts"
+    "dev": "ts-node-dev --transpile-only --ignore-watch node_modules --rs --cls src/server.ts",
+    "build": "yarn build"
   },
   "devDependencies": {
   },
