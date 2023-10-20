@@ -30,3 +30,15 @@ Os parâmetros modificam o caminho da operação. Por exemplo, o caminho "Exclui
 
 Você pode fazer o upload de imagem enviando no cabeçalho um: "Content-Type": "multipart/form-data" e insirindo a sua imagem.
 Podendo enviar uma imagem nos formatos de jpeg, jpg e png.
+
+## 📚 Outras bibliotecas 
+<p>Zod</p>
+<p>Cors</p>
+<p>Cloudinary</p>
+<p>TypeOrm</p>
+<p>Multer</p>
+<p>Dotenv</p>
+<p>Express Async Errors</p>
+<p>JsonWebToken</p>
+<p>Mailgen</p>
+<p>NodeMailer</p>
