@@ -1,4 +1,6 @@
 # Bar Perks - API REST
+![Badge Tecnologias](https://img.shields.io/badge/Tecnologias-NodeJS%20%7C%20Express%20%7C%20Typescript%20-informational)
+
 Use a API REST para obter informações públicas e privadas com usuários autenticados.
 
 <h2>Sobre a API</h2>
