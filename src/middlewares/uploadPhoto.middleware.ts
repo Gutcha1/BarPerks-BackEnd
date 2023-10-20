@@ -5,7 +5,7 @@ import { AppError } from '../errors'
 module.exports = (multer({
     storage: multer.diskStorage({
         destination: (req, file, callback) => {
-            callback(null, path.resolve('./src/tmp'))
+            callback(null, path.resolve('./tmp'))
         },
         filename: (_, file, callback) => {
             const time = new Date().getTime()
