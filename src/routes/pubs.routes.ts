@@ -24,47 +24,49 @@ pubsRoutes.post('/plan', async (req: Request, res: Response): Promise<void> => {
     const data = req.body
     const token = "APP_USR-2600481674697355-110617-ebde29dc7f6bbd01fd4beaffdc12f070-74670153"
 
-    if(data.data.id){
-        await fetch(`https://api.mercadopago.com/v1/payments/${data.data.id}`, {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${token}`
-            }
-        }).then(reponse => reponse.json())
-        .then(async (responseJson) => {
+    return 'ok'
 
-            if(responseJson.status == "approved"){
-                const planRepository: Repository<Plan> = AppDataSource.getRepository(Plan);
+    //if(data.data.id){
+    //    await fetch(`https://api.mercadopago.com/v1/payments/${data.data.id}`, {
+    //        method: 'GET',
+    //        headers: {
+    //            'Content-Type': 'application/json',
+    //            'Authorization': `Bearer ${token}`
+    //        }
+    //    }).then(reponse => reponse.json())
+    //    .then(async (responseJson) => {
 
-                const findPlan: Plan | null = await planRepository.findOne({
-                    where: {
-                        pub: {
-                            email: responseJson.additional_info.items[0].id
-                        }
-                    },
-                    relations: {
-                        pub: true
-                    }
-                });
+    //        if(responseJson.status == "approved"){
+    //            const planRepository: Repository<Plan> = AppDataSource.getRepository(Plan);
 
-                if (!findPlan) {
-                    throw new AppError('Plano não encontrado', 404);
-                }
+    //            const findPlan: Plan | null = await planRepository.findOne({
+    //                where: {
+    //                    pub: {
+    //                        email: responseJson.additional_info.items[0].id
+    //                    }
+    //                },
+    //                relations: {
+    //                    pub: true
+    //                }
+    //            });
 
-                const newDataPlan = {
-                    ...findPlan,
-                    name: responseJson.description
-                };
-            
-                await planRepository.save(newDataPlan);
-                
-                const plan = plansSchemaResponse.parse(newDataPlan);
-                
-                return plan;
-            }
-        })
-        .catch(erro => console.log(erro))
+    //            if (!findPlan) {
+    //                throw new AppError('Plano não encontrado', 404);
+    //            }
+
+    //            const newDataPlan = {
+    //                ...findPlan,
+    //                name: responseJson.description
+    //            };
+    //        
+    //            await planRepository.save(newDataPlan);
+    //            
+    //            const plan = plansSchemaResponse.parse(newDataPlan);
+    //            
+    //            return plan;
+    //        }
+    //    })
+    //    .catch(erro => console.log(erro))
     }
 })
 
