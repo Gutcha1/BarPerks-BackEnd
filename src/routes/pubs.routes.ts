@@ -20,7 +20,7 @@ pubsRoutes.delete('/:id', ensureAuthIsValidMiddleware, ensurePubAccount, deleteP
 pubsRoutes.post('/recuperar-senha', sendEmailResetPasswordController)
 pubsRoutes.patch('/recuperar-senha/:token', resetPasswordController)
 pubsRoutes.patch('/upload/:id', (upload.single('file')), uploadPubController)
-pubsRoutes.post('/plan', async (req: Request, res: Response): Promise<void> => {
+pubsRoutes.post('/plan', async (req: Request, res: Response): Promise<string> => {
     const data = req.body
     const token = "APP_USR-2600481674697355-110617-ebde29dc7f6bbd01fd4beaffdc12f070-74670153"
 
